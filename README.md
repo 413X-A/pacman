@@ -1,2 +1,2 @@
 # pacman
-A newer version of PacMan !
+A new version of PacMan !
