@@ -1,0 +1,97 @@
+/* ---------------- Settings Button ---------------- */
+#settingsBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 0.2s ease;
+}
+#settingsBtn:hover {
+    transform: scale(1.1); /* kleiner Hover-Effekt */
+}
+
+/* ---------------- Settings Overlay ---------------- */
+#settingsOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 50, 70, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Box im Overlay */
+#settingsBox {
+    background-color: rgba(0, 150, 180, 0.9); /* Aqua Neon */
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 0 20px #00ffff;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Überschrift */
+#settingsBox h2 {
+    margin-bottom: 20px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+/* Dropdown */
+#settingsBox select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    background-color: rgba(0, 100, 120, 0.8);
+    color: white;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+/* Close Button */
+#closeSettings {
+    background-color: #00ffff;
+    color: #002f3c;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#closeSettings:hover {
+    background-color: #00e5ff;
+    transform: scale(1.05);
+}
+
+
+.settings-section {
+    margin-top: 12px;
+}
+
+.powerup-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 6px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}

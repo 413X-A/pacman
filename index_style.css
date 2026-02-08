@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    font-family: "Courier New", monospace;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #0ff;
+}
+
+
+
+.game-frame {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #000;
+    border: 4px solid #0ff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 0 25px #0ff;
+}
+
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px #0ff;
+}
+
+/* ================= ANIMATION ================= */
+
+.pacman-area {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 2px solid #033;
+    border-radius: 10px;
+}
+
+/* PNG PACMAN */
+.pacman {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 0;
+    image-rendering: pixelated;
+}
+
+/* PUNKTE */
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ffff;
+    border-radius: 50%;
+    top: 27px;
+    box-shadow: 0 0 6px #00ffff;
+}
+
+/* GEISTER */
+.ghost {
+    position: absolute;
+    width: 36px;
+    top: 12px;
+    image-rendering: pixelated;
+}
+
+/* ================= LOGIN ================= */
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+input {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* smooth Übergang */
+    background: #000;
+    border: 2px solid #0ff;
+    padding: 10px;
+    color: #0ff;
+    font-size: 16px;
+    border-radius: 10px;
+}
+input:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); /* optionaler Neon-Effekt */
+}
+
+
+input::placeholder {
+    color: #066;
+}
+
+button {
+    background: #000;
+    border: 2px solid yellow;
+    color: yellow;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 10px yellow;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: yellow;
+    color: #000;
+}
+
+.hint {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+}
