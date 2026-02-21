@@ -1,0 +1,521 @@
+/* ===============================
+   GLOBAL STYLE (NEON ARCADE)
+================================ */
+* {
+    box-sizing: border-box;
+    font-family: "Courier New", monospace;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #0ff;
+}
+
+/* ===============================
+   GAME FRAME
+================================ */
+.game-frame {
+    position: relative;
+    background-color: #000;
+    border: 4px solid #0ff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 25px #0ff;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.punkte {
+    position: absolute;
+    top: 60px;              /* unter dem Titel */
+    right: 0;
+    transform: translateX(100%);
+    margin-right: 15px;
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+/* ===============================
+   TITLE
+================================ */
+.title {
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px #0ff;
+}
+
+/* ===============================
+   BOARD (ORIGINAL PAC-MAN)
+================================ */
+.board {
+    display: grid;
+    background: #000;
+    margin: 0 auto;
+    image-rendering: pixelated;
+}
+
+/* ===============================
+   GRID CELLS
+================================ */
+
+.path {
+    position: relative;
+}
+
+/* NORMALE PUNKTE */
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15%;
+    height: 15%;
+    transform: translate(-50%, -50%);
+    background: #ffd800;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #ffd800;
+}
+
+
+/* POWER-PELLET */
+.powerup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    background: #ffd800;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #ffd800;
+    z-index: 2;
+}
+
+/* AUSWAHL / GLOW */
+.auswahl {
+    /*  background: #ff00ea; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+    width: 50%;   /* optional, besser sichtbar */
+    height: 50%;  /* optional, besser sichtbar */
+    border-radius: 50%;
+    z-index: 10;   /* hoch genug, um über Glow zu liegen */
+}
+
+
+/* WALLS */
+.wall {
+    background: var(--wall);
+}
+
+/* GHOST HOUSE */
+.ghost-start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GHOST DOOR */
+.ghost-door {
+    background: #000;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+}
+
+.ghost-door::after {
+    content: "";
+    margin-top: 0px;
+    width: 100%;
+    height: 15%;
+    background: #1e3cff;
+    border-radius: 1px;
+}
+
+/* ===============================
+   REPRODUCTION
+================================ */
+.ghost-repro-marker {
+    background: rgba(255, 0, 0, 0.6);
+}
+
+
+
+/* ===============================
+   WORLD THEMES
+================================ */
+:root {
+    /* Original */
+    --original-wall: #1e3cff;
+    --original-path: #000;
+    --original-dot: #ffd800;
+    --original-powerup: #ffd800;
+
+    /* Lava / Feuerwelt */
+    --lava-wall: #ff3300;
+    --lava-path: #330000;
+    --lava-dot: #ffdd66;
+    --lava-powerup: #ff8800;
+
+    /* Ice / Frostwelt */
+    --ice-wall: #33ccff;
+    --ice-path: #001122;
+    --ice-dot: #aaffff;
+    --ice-powerup: #66ffff;
+
+    /* Forest / Waldwelt */
+    --forest-wall: #116611;
+    --forest-path: #0a3010;
+    --forest-dot: #aaff88;
+    --forest-powerup: #55ff33;
+
+    /* Desert / Wüstenwelt */
+    --desert-wall: #ccaa33;
+    --desert-path: #332211;
+    --desert-dot: #fff0aa;
+    --desert-powerup: #ffcc66;
+
+    /* Ocean / Ozeanwelt */
+    --ocean-wall: #0066cc;
+    --ocean-path: #001f33;
+    --ocean-dot: #66ccff;
+    --ocean-powerup: #33ffff;
+
+    /* Neon / Neonstadt */
+    --neon-wall: #ff00ff;
+    --neon-path: #000000;
+    --neon-dot: #00ffff;
+    --neon-powerup: #ff00ff;
+
+    /* Space / Weltraum */
+    --space-wall: #4444aa;
+    --space-path: #000011;
+    --space-dot: #ffffff;
+    --space-powerup: #8888ff;
+
+    /* Volcano / Vulkanwelt */
+    --volcano-wall: #aa2200;
+    --volcano-path: #110000;
+    --volcano-dot: #ff8800;
+    --volcano-powerup: #ff3300;
+
+    /* Crystal / Kristallwelt */
+    --crystal-wall: #88eeff;
+    --crystal-path: #001122;
+    --crystal-dot: #ccffff;
+    --crystal-powerup: #88ffff;
+
+    /* Mystic / Mystische Welt */
+    --mystic-wall: #6600cc;
+    --mystic-path: #110022;
+    --mystic-dot: #cc88ff;
+    --mystic-powerup: #aa66ff;
+
+
+    
+    /* Toxic / Giftwelt */
+    --toxic-wall: #33aa55;
+    --toxic-path: #001a0f;
+    --toxic-dot: #88ffbb;
+    --toxic-powerup: #55ffaa;
+
+    /* Ruins / Antike Ruinen */
+    --ruins-wall: #8b7d6b;
+    --ruins-path: #2b241c;
+    --ruins-dot: #e6d3a3;
+    --ruins-powerup: #ffd27f;
+
+    /* Cyber / Cyberwelt */
+    --cyber-wall: #00ffaa;
+    --cyber-path: #001010;
+    --cyber-dot: #00ffff;
+    --cyber-powerup: #00ffcc;
+
+    /* Jungle / Dschungelwelt */
+    --jungle-wall: #1f7a1f;
+    --jungle-path: #0b2e0b;
+    --jungle-dot: #aaff66;
+    --jungle-powerup: #66ff33;
+
+    /* Sky / Himmelswelt */
+    --sky-wall: #66ccff;
+    --sky-path: #e6f7ff;
+    --sky-dot: #ffffff;
+    --sky-powerup: #ccffff;
+
+    /* Shadow / Schattenwelt */
+    --shadow-wall: #222222;
+    --shadow-path: #000000;
+    --shadow-dot: #bbbbbb;
+    --shadow-powerup: #888888;
+
+    /* Factory / Fabrikwelt */
+    --factory-wall: #555555;
+    --factory-path: #1a1a1a;
+    --factory-dot: #ffaa00;
+    --factory-powerup: #ffcc33;
+
+    /* Void / Leere */
+    --void-wall: #2b0040;
+    --void-path: #000000;
+    --void-dot: #bb88ff;
+    --void-powerup: #aa66ff;
+
+    /* Dream / Traumwelt */
+    --dream-wall: #ff99cc;
+    --dream-path: #2a001a;
+    --dream-dot: #ffd6eb;
+    --dream-powerup: #ff66aa;
+
+    /* Abyss / Abgrund */
+    --abyss-wall: #001133;
+    --abyss-path: #000011;
+    --abyss-dot: #6699ff;
+    --abyss-powerup: #3366ff;
+
+}
+
+/* ===============================
+   BOARD THEME CLASSES
+================================ */
+
+/* Original */
+.board.theme-original .pacman-start { background: var(--original-path); }
+.board.theme-original .wall { background: var(--original-wall); }
+.board.theme-original .path { background: var(--original-path); }
+.board.theme-original .dot { background: var(--original-dot); box-shadow: 0 0 4px var(--original-dot); }
+.board.theme-original .powerup { background: var(--original-powerup); box-shadow: 0 0 12px var(--original-powerup); }
+.board.theme-original .ghost-door::after { background: var(--original-wall); }
+
+/* Lava */
+.board.theme-lava .pacman-start { background: var(--lava-path); }
+.board.theme-lava .wall { background: var(--lava-wall); }
+.board.theme-lava .path { background: var(--lava-path); }
+.board.theme-lava .dot { background: var(--lava-dot); box-shadow: 0 0 4px var(--lava-dot); }
+.board.theme-lava .powerup { background: var(--lava-powerup); box-shadow: 0 0 12px var(--lava-powerup); }
+.board.theme-lava .ghost-door::after { background: var(--lava-wall); }
+
+/* Ice */
+.board.theme-ice .pacman-start { background: var(--ice-path); }
+.board.theme-ice .wall { background: var(--ice-wall); }
+.board.theme-ice .path { background: var(--ice-path); }
+.board.theme-ice .dot { background: var(--ice-dot); box-shadow: 0 0 4px var(--ice-dot); }
+.board.theme-ice .powerup { background: var(--ice-powerup); box-shadow: 0 0 12px var(--ice-powerup); }
+.board.theme-ice .ghost-door::after { background: var(--ice-wall); }
+
+/* Forest */
+.board.theme-forest .pacman-start { background: var(--forest-path); }
+.board.theme-forest .wall { background: var(--forest-wall); }
+.board.theme-forest .path { background: var(--forest-path); }
+.board.theme-forest .dot { background: var(--forest-dot); box-shadow: 0 0 4px var(--forest-dot); }
+.board.theme-forest .powerup { background: var(--forest-powerup); box-shadow: 0 0 12px var(--forest-powerup); }
+.board.theme-forest .ghost-door::after { background: var(--forest-wall); }
+
+/* Desert */
+.board.theme-desert .pacman-start { background: var(--desert-path); }
+.board.theme-desert .wall { background: var(--desert-wall); }
+.board.theme-desert .path { background: var(--desert-path); }
+.board.theme-desert .dot { background: var(--desert-dot); box-shadow: 0 0 4px var(--desert-dot); }
+.board.theme-desert .powerup { background: var(--desert-powerup); box-shadow: 0 0 12px var(--desert-powerup); }
+.board.theme-desert .ghost-door::after { background: var(--desert-wall); }
+
+/* Ocean */
+.board.theme-ocean .pacman-start { background: var(--ocean-path); }
+.board.theme-ocean .wall { background: var(--ocean-wall); }
+.board.theme-ocean .path { background: var(--ocean-path); }
+.board.theme-ocean .dot { background: var(--ocean-dot); box-shadow: 0 0 4px var(--ocean-dot); }
+.board.theme-ocean .powerup { background: var(--ocean-powerup); box-shadow: 0 0 12px var(--ocean-powerup); }
+.board.theme-ocean .ghost-door::after { background: var(--ocean-wall); }
+
+/* Neon */
+.board.theme-neon .pacman-start { background: var(--neon-path); }
+.board.theme-neon .wall { background: var(--neon-wall); }
+.board.theme-neon .path { background: var(--neon-path); }
+.board.theme-neon .dot { background: var(--neon-dot); box-shadow: 0 0 4px var(--neon-dot); }
+.board.theme-neon .powerup { background: var(--neon-powerup); box-shadow: 0 0 12px var(--neon-powerup); }
+.board.theme-neon .ghost-door::after { background: var(--neon-wall); }
+
+/* Space */
+.board.theme-space .pacman-start { background: var(--space-path); }
+.board.theme-space .wall { background: var(--space-wall); }
+.board.theme-space .path { background: var(--space-path); }
+.board.theme-space .dot { background: var(--space-dot); box-shadow: 0 0 4px var(--space-dot); }
+.board.theme-space .powerup { background: var(--space-powerup); box-shadow: 0 0 12px var(--space-powerup); }
+.board.theme-space .ghost-door::after { background: var(--space-wall); }
+
+/* Volcano */
+.board.theme-volcano .pacman-start { background: var(--volcano-path); }
+.board.theme-volcano .wall { background: var(--volcano-wall); }
+.board.theme-volcano .path { background: var(--volcano-path); }
+.board.theme-volcano .dot { background: var(--volcano-dot); box-shadow: 0 0 4px var(--volcano-dot); }
+.board.theme-volcano .powerup { background: var(--volcano-powerup); box-shadow: 0 0 12px var(--volcano-powerup); }
+.board.theme-volcano .ghost-door::after { background: var(--volcano-wall); }
+
+/* Crystal */
+.board.theme-crystal .pacman-start { background: var(--crystal-path); }
+.board.theme-crystal .wall { background: var(--crystal-wall); }
+.board.theme-crystal .path { background: var(--crystal-path); }
+.board.theme-crystal .dot { background: var(--crystal-dot); box-shadow: 0 0 4px var(--crystal-dot); }
+.board.theme-crystal .powerup { background: var(--crystal-powerup); box-shadow: 0 0 12px var(--crystal-powerup); }
+.board.theme-crystal .ghost-door::after { background: var(--crystal-wall); }
+
+/* Mystic */
+.board.theme-mystic .pacman-start { background: var(--mystic-path); }
+.board.theme-mystic .wall { background: var(--mystic-wall); }
+.board.theme-mystic .path { background: var(--mystic-path); }
+.board.theme-mystic .dot { background: var(--mystic-dot); box-shadow: 0 0 4px var(--mystic-dot); }
+.board.theme-mystic .powerup { background: var(--mystic-powerup); box-shadow: 0 0 12px var(--mystic-powerup); }
+.board.theme-mystic .ghost-door::after { background: var(--mystic-wall); }
+
+
+
+/* Toxic */
+.board.theme-toxic .pacman-start { background: var(--toxic-path); }
+.board.theme-toxic .wall { background: var(--toxic-wall); }
+.board.theme-toxic .path { background: var(--toxic-path); }
+.board.theme-toxic .dot { background: var(--toxic-dot); box-shadow: 0 0 4px var(--toxic-dot); }
+.board.theme-toxic .powerup { background: var(--toxic-powerup); box-shadow: 0 0 12px var(--toxic-powerup); }
+.board.theme-toxic .ghost-door::after { background: var(--toxic-wall); }
+
+/* Ruins */
+.board.theme-ruins .pacman-start { background: var(--ruins-path); }
+.board.theme-ruins .wall { background: var(--ruins-wall); }
+.board.theme-ruins .path { background: var(--ruins-path); }
+.board.theme-ruins .dot { background: var(--ruins-dot); box-shadow: 0 0 4px var(--ruins-dot); }
+.board.theme-ruins .powerup { background: var(--ruins-powerup); box-shadow: 0 0 12px var(--ruins-powerup); }
+.board.theme-ruins .ghost-door::after { background: var(--ruins-wall); }
+
+/* Cyber */
+.board.theme-cyber .pacman-start { background: var(--cyber-path); }
+.board.theme-cyber .wall { background: var(--cyber-wall); }
+.board.theme-cyber .path { background: var(--cyber-path); }
+.board.theme-cyber .dot { background: var(--cyber-dot); box-shadow: 0 0 4px var(--cyber-dot); }
+.board.theme-cyber .powerup { background: var(--cyber-powerup); box-shadow: 0 0 12px var(--cyber-powerup); }
+.board.theme-cyber .ghost-door::after { background: var(--cyber-wall); }
+
+/* Jungle */
+.board.theme-jungle .pacman-start { background: var(--jungle-path); }
+.board.theme-jungle .wall { background: var(--jungle-wall); }
+.board.theme-jungle .path { background: var(--jungle-path); }
+.board.theme-jungle .dot { background: var(--jungle-dot); box-shadow: 0 0 4px var(--jungle-dot); }
+.board.theme-jungle .powerup { background: var(--jungle-powerup); box-shadow: 0 0 12px var(--jungle-powerup); }
+.board.theme-jungle .ghost-door::after { background: var(--jungle-wall); }
+
+/* Sky */
+.board.theme-sky .pacman-start { background: var(--sky-path); }
+.board.theme-sky .wall { background: var(--sky-wall); }
+.board.theme-sky .path { background: var(--sky-path); }
+.board.theme-sky .dot { background: var(--sky-dot); box-shadow: 0 0 4px var(--sky-dot); }
+.board.theme-sky .powerup { background: var(--sky-powerup); box-shadow: 0 0 12px var(--sky-powerup); }
+.board.theme-sky .ghost-door::after { background: var(--sky-wall); }
+
+/* Shadow */
+.board.theme-shadow .pacman-start { background: var(--shadow-path); }
+.board.theme-shadow .wall { background: var(--shadow-wall); }
+.board.theme-shadow .path { background: var(--shadow-path); }
+.board.theme-shadow .dot { background: var(--shadow-dot); box-shadow: 0 0 4px var(--shadow-dot); }
+.board.theme-shadow .powerup { background: var(--shadow-powerup); box-shadow: 0 0 12px var(--shadow-powerup); }
+.board.theme-shadow .ghost-door::after { background: var(--shadow-wall); }
+
+/* Factory */
+.board.theme-factory .pacman-start { background: var(--factory-path); }
+.board.theme-factory .wall { background: var(--factory-wall); }
+.board.theme-factory .path { background: var(--factory-path); }
+.board.theme-factory .dot { background: var(--factory-dot); box-shadow: 0 0 4px var(--factory-dot); }
+.board.theme-factory .powerup { background: var(--factory-powerup); box-shadow: 0 0 12px var(--factory-powerup); }
+.board.theme-factory .ghost-door::after { background: var(--factory-wall); }
+
+/* Void */
+.board.theme-void .pacman-start { background: var(--void-path); }
+.board.theme-void .wall { background: var(--void-wall); }
+.board.theme-void .path { background: var(--void-path); }
+.board.theme-void .dot { background: var(--void-dot); box-shadow: 0 0 4px var(--void-dot); }
+.board.theme-void .powerup { background: var(--void-powerup); box-shadow: 0 0 12px var(--void-powerup); }
+.board.theme-void .ghost-door::after { background: var(--void-wall); }
+
+/* Dream */
+.board.theme-dream .pacman-start { background: var(--dream-path); }
+.board.theme-dream .wall { background: var(--dream-wall); }
+.board.theme-dream .path { background: var(--dream-path); }
+.board.theme-dream .dot { background: var(--dream-dot); box-shadow: 0 0 4px var(--dream-dot); }
+.board.theme-dream .powerup { background: var(--dream-powerup); box-shadow: 0 0 12px var(--dream-powerup); }
+.board.theme-dream .ghost-door::after { background: var(--dream-wall); }
+
+/* Abyss */
+.board.theme-abyss .pacman-start { background: var(--abyss-path); }
+.board.theme-abyss .wall { background: var(--abyss-wall); }
+.board.theme-abyss .path { background: var(--abyss-path); }
+.board.theme-abyss .dot { background: var(--abyss-dot); box-shadow: 0 0 4px var(--abyss-dot); }
+.board.theme-abyss .powerup { background: var(--abyss-powerup); box-shadow: 0 0 12px var(--abyss-powerup); }
+.board.theme-abyss .ghost-door::after { background: var(--abyss-wall); }
+
+
+
+
+/* ===============================
+   ROUNDED PATH CELLS WITH GLOW
+================================ */
+.board .path,
+.board .pacman-start {
+    border-radius: 25%;
+    box-shadow: 0 0 6px rgba(255,255,255,0.2);
+}
+
+/* Optionale farbige Glow-Effekte pro Welt */
+.board.theme-original .path,
+.board.theme-original .pacman-start { box-shadow: 0 0 6px #1e3cff33; }
+.board.theme-lava .path,
+.board.theme-lava .pacman-start { box-shadow: 0 0 6px #ff330033; }
+.board.theme-ice .path,
+.board.theme-ice .pacman-start { box-shadow: 0 0 6px #33ccff33; }
+.board.theme-forest .path,
+.board.theme-forest .pacman-start { box-shadow: 0 0 6px #11661133; }
+.board.theme-desert .path,
+.board.theme-desert .pacman-start { box-shadow: 0 0 6px #ccaa3333; }
+.board.theme-ocean .path,
+.board.theme-ocean .pacman-start { box-shadow: 0 0 6px #0066cc33; }
+.board.theme-neon .path,
+.board.theme-neon .pacman-start { box-shadow: 0 0 6px #ff00ff33; }
+.board.theme-space .path,
+.board.theme-space .pacman-start { box-shadow: 0 0 6px #4444aa33; }
+.board.theme-volcano .path,
+.board.theme-volcano .pacman-start { box-shadow: 0 0 6px #aa220033; }
+.board.theme-crystal .path,
+.board.theme-crystal .pacman-start { box-shadow: 0 0 6px #88eeff33; }
+.board.theme-mystic .path,
+.board.theme-mystic .pacman-start { box-shadow: 0 0 6px #6600cc33; }
+
+
+.board.theme-toxic .path,
+.board.theme-toxic .pacman-start { box-shadow: 0 0 6px #33aa5533; }
+.board.theme-ruins .path,
+.board.theme-ruins .pacman-start { box-shadow: 0 0 6px #8b7d6b33; }
+.board.theme-cyber .path,
+.board.theme-cyber .pacman-start { box-shadow: 0 0 6px #00ffaa33; }
+.board.theme-jungle .path,
+.board.theme-jungle .pacman-start { box-shadow: 0 0 6px #1f7a1f33; }
+.board.theme-sky .path,
+.board.theme-sky .pacman-start { box-shadow: 0 0 6px #66ccff33; }
+.board.theme-shadow .path,
+.board.theme-shadow .pacman-start { box-shadow: 0 0 6px #44444433; }
+.board.theme-factory .path,
+.board.theme-factory .pacman-start { box-shadow: 0 0 6px #55555533; }
+.board.theme-void .path,
+.board.theme-void .pacman-start { box-shadow: 0 0 6px #bb88ff33; }
+.board.theme-dream .path,
+.board.theme-dream .pacman-start { box-shadow: 0 0 6px #ff99cc33; }
+.board.theme-abyss .path,
+.board.theme-abyss .pacman-start { box-shadow: 0 0 6px #3366ff33; }

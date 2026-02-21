@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pac-Man Arena</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/hauptmenue_style.css">
+    <link rel="stylesheet" href="./css/settings.css">
+</head>
+<body>
+
+<div class="game-frame">
+
+    <h1 class="title" id="pageTitle">PAC-MAN </h1>
+
+    <!-- Einstellungen Button oben rechts -->
+    <img src="assets/icons/settings.png" id="settingsBtn" alt="Einstellungen" class="settings-btn">
+
+
+    <div class="pacman-area" id="pacmanArea">
+        <!-- PNG PACMAN -->
+        <img src="assets/objects/pacman/pacman_right_open.png" id="pacman" class="pacman" alt="Pacman">
+    </div>
+
+    <!-- HUB / MENÜ -->
+    <div class="hub-menu">
+
+        <button class="hub-btn" id="profileBtn">Profil</button>
+        <button class="hub-btn" id="sammelpfadBtn">Sammelpfad</button>
+        <button class="hub-btn" id="challengesBtn">Herausforderungen</button>
+        <button class="hub-btn" id="shopBtn">Einkaufsladen</button>
+
+        <button class="spiel_starten" id="startGameBtn"></button>
+
+    </div>
+
+</div>
+
+<script src="./javascript/ui.js"></script>
+<script src="./javascript/settings.js"></script>
+<script src="./javascript/animation.js"></script>
+
+<script src="./javascript/hauptmenue_profil.js"></script>
+<script src="./javascript/hauptmenue_spielstarten.js"></script>
+<script src="./javascript/hauptmenue_herausforderungen.js"></script>
+
+</body>
+</html>

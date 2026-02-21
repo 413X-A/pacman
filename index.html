@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pac-Man Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index_style.css">
+    <link rel="stylesheet" href="./css/settings.css">
+</head>
+<body>
+
+<div class="game-frame">
+
+    <h1 class="title">PAC-LOGIN</h1>
+
+    <div class="pacman-area" id="pacmanArea">
+        <img src="assets/objects/pacman/pacman_right_open.png" id="pacman" class="pacman" alt="Pacman">
+    </div>
+
+    <div class="login-box">
+        <input type="text" id="username" placeholder="Benutzername">
+        <input type="password" id="password" placeholder="Passwort">
+        <button id="loginBtn">BESTÄTIGEN</button>
+    </div>
+
+    <p class="hint" id="status">Auto-Registrierung aktiv</p>
+
+</div>
+
+<script src="./javascript/settings.js"></script>
+<script src="./javascript/animation.js"></script>
+<script type="module" src="./javascript/login.js"></script>
+</body>
+</html>
